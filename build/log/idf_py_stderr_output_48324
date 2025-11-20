@@ -1,0 +1,5 @@
+Compiler supported targets: xtensa-esp32s3-elf
+
+/Users/casper/repos/GENERAL/ESP32-cam/main/main.c:232:13: warning: 'url_decode' defined but not used [-Wunused-function]
+  232 | static void url_decode(char *dst, const char *src) {
+      |             ^~~~~~~~~~

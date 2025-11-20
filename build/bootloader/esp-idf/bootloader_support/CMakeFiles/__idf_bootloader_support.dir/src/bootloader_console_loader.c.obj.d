@@ -1,0 +1,19 @@
+esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console_loader.c.obj: \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/bootloader_support/src/bootloader_console_loader.c \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/lib/gcc/xtensa-esp32s3-elf/12.2.0/include/stdint.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/stdint.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/machine/_default_types.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/features.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/_newlib_version.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/_intsup.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/_stdint.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/lib/gcc/xtensa-esp32s3-elf/12.2.0/include/stddef.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/build/bootloader/config/sdkconfig.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/bootloader_support/private_include/bootloader_console.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp_rom_uart.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp_rom_sys.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/soc/esp32s3/include/soc/reset_reasons.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp32s3/rom/usb/chip_usb_dw_wrapper.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp32s3/rom/usb/usb_dc.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp32s3/rom/usb/cdc_acm.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp32s3/rom/usb/usb_persist.h

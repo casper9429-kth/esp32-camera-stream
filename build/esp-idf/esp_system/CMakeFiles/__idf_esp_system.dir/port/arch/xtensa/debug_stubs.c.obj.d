@@ -1,0 +1,25 @@
+esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/debug_stubs.c.obj: \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_system/port/arch/xtensa/debug_stubs.c \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/xtensa/include/eri.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/lib/gcc/xtensa-esp32s3-elf/12.2.0/include/stdint.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/stdint.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/machine/_default_types.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/features.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/_newlib_version.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/_intsup.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/_stdint.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/xtensa/include/xtensa-debug-module.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/xtensa/esp32s3/include/xtensa/config/core-isa.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/log/include/esp_log.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/lib/gcc/xtensa-esp32s3-elf/12.2.0/include/stdarg.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/inttypes.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/newlib.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/config.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/machine/ieeefp.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/_ansi.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/lib/gcc/xtensa-esp32s3-elf/12.2.0/include/stddef.h \
+ /Users/casper/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf/sys-include/sys/_locale.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/build/config/sdkconfig.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/esp_rom/include/esp_rom_sys.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/soc/esp32s3/include/soc/reset_reasons.h \
+ /Users/casper/repos/GENERAL/ESP32-cam/esp-idf/components/log/include/esp_log_internal.h

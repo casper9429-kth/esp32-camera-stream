@@ -1,0 +1,9 @@
+menu "Example Configuration"
+
+    config BLINK_PERIOD
+        int "Blink Period (ms)"
+        default 1000
+        help
+            Period for blinking the LED in milliseconds.
+
+endmenu
