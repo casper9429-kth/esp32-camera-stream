@@ -75,6 +75,7 @@ static esp_err_t load_wifi_creds(char *ssid, size_t ssid_len, char *pass, size_t
 static uint8_t *shared_frame = NULL;
 static size_t shared_frame_len = 0;
 static SemaphoreHandle_t frame_mutex = NULL;
+static volatile uint32_t frame_counter = 0;
 
 // ============================================================================
 // Camera Config
@@ -116,11 +117,11 @@ static void init_camera(void) {
                             .pin_pwdn = CAM_PIN_PWDN,
                             .pin_reset = CAM_PIN_RESET,
                             .xclk_freq_hz = 20000000,
-                            .frame_size = FRAMESIZE_QVGA, // 320x240
+                            .frame_size = FRAMESIZE_VGA, // Increased to 640x480
                             .pixel_format = PIXFORMAT_JPEG,
                             .grab_mode = CAMERA_GRAB_LATEST,
                             .fb_location = CAMERA_FB_IN_PSRAM,
-                            .jpeg_quality = 15,
+                            .jpeg_quality = 12, // Higher quality (lower number)
                             .fb_count = 2};
 
   ESP_ERROR_CHECK(esp_camera_init(&config));
@@ -139,11 +140,13 @@ static void camera_task(void *arg) {
       if (xSemaphoreTake(frame_mutex, pdMS_TO_TICKS(10)) == pdTRUE) {
         memcpy(shared_frame, fb->buf, fb->len);
         shared_frame_len = fb->len;
+        frame_counter++;
         xSemaphoreGive(frame_mutex);
       }
       esp_camera_fb_return(fb);
     }
-    vTaskDelay(pdMS_TO_TICKS(40)); // 25fps
+    // Minimal delay to allow other tasks to run, but capture as fast as possible
+    vTaskDelay(pdMS_TO_TICKS(10)); 
   }
 }
 
@@ -170,8 +173,16 @@ static esp_err_t stream_handler(httpd_req_t *req) {
              sizeof(timeout));
 
   ESP_LOGI(TAG, "Client connected");
+  
+  uint32_t last_frame_sent = 0;
 
   while (1) {
+    // Wait for a new frame
+    if (last_frame_sent == frame_counter) {
+        vTaskDelay(pdMS_TO_TICKS(10));
+        continue;
+    }
+
     size_t len = 0;
 
     // Copy frame
@@ -179,6 +190,7 @@ static esp_err_t stream_handler(httpd_req_t *req) {
       if (shared_frame_len > 0) {
         memcpy(buf, shared_frame, shared_frame_len);
         len = shared_frame_len;
+        last_frame_sent = frame_counter;
       }
       xSemaphoreGive(frame_mutex);
     }
@@ -198,8 +210,8 @@ static esp_err_t stream_handler(httpd_req_t *req) {
       break;
     if (httpd_resp_send_chunk(req, (char *)buf, len) != ESP_OK)
       break;
-
-    vTaskDelay(pdMS_TO_TICKS(40));
+      
+    // No delay here - send next frame as soon as it's available
   }
 
   free(buf);
