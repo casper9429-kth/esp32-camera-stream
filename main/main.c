@@ -97,6 +97,33 @@ static volatile uint32_t frame_counter = 0;
 #define CAM_PIN_HREF 7
 #define CAM_PIN_PCLK 13
 
+static void setup_camera_sensor(void) {
+    sensor_t *s = esp_camera_sensor_get();
+    if (s) {
+        s->set_brightness(s, 1);     // -2 to 2
+        s->set_contrast(s, 1);       // -2 to 2
+        s->set_saturation(s, 1);     // -2 to 2
+        s->set_whitebal(s, 1);       // 0 = disable , 1 = enable
+        s->set_awb_gain(s, 1);       // 0 = disable , 1 = enable
+        s->set_wb_mode(s, 0);        // 0 to 4 - if awb_gain enabled (0 - Auto, 1 - Sunny, 2 - Cloudy, 3 - Office, 4 - Home)
+        s->set_exposure_ctrl(s, 1);  // 0 = disable , 1 = enable
+        s->set_aec2(s, 1);           // 0 = disable , 1 = enable
+        s->set_ae_level(s, 0);       // -2 to 2
+        s->set_aec_value(s, 300);    // 0 to 1200
+        s->set_gain_ctrl(s, 1);      // 0 = disable , 1 = enable
+        s->set_agc_gain(s, 0);       // 0 to 30
+        s->set_gainceiling(s, (gainceiling_t)0);  // 0 to 6
+        s->set_bpc(s, 0);            // 0 = disable , 1 = enable
+        s->set_wpc(s, 1);            // 0 = disable , 1 = enable
+        s->set_raw_gma(s, 1);        // 0 = disable , 1 = enable
+        s->set_lenc(s, 1);           // 0 = disable , 1 = enable
+        s->set_hmirror(s, 0);        // 0 = disable , 1 = enable
+        s->set_vflip(s, 0);          // 0 = disable , 1 = enable
+        s->set_dcw(s, 1);            // 0 = disable , 1 = enable
+        s->set_colorbar(s, 0);       // 0 = disable , 1 = enable
+    }
+}
+
 static void init_camera(void) {
   camera_config_t config = {.ledc_channel = LEDC_CHANNEL_0,
                             .ledc_timer = LEDC_TIMER_0,
@@ -117,14 +144,15 @@ static void init_camera(void) {
                             .pin_pwdn = CAM_PIN_PWDN,
                             .pin_reset = CAM_PIN_RESET,
                             .xclk_freq_hz = 20000000,
-                            .frame_size = FRAMESIZE_VGA, // Increased to 640x480
+                            .frame_size = FRAMESIZE_HVGA, // 480x320 - Balanced resolution
                             .pixel_format = PIXFORMAT_JPEG,
                             .grab_mode = CAMERA_GRAB_LATEST,
                             .fb_location = CAMERA_FB_IN_PSRAM,
-                            .jpeg_quality = 12, // Higher quality (lower number)
-                            .fb_count = 2};
+                            .jpeg_quality = 10, // High quality (lower is better)
+                            .fb_count = 3}; // Triple buffering
 
   ESP_ERROR_CHECK(esp_camera_init(&config));
+  setup_camera_sensor();
   ESP_LOGI(TAG, "Camera initialized");
 }
 
